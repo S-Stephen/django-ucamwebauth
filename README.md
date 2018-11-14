@@ -58,7 +58,7 @@ UCAMWEBAUTH_TIMEOUT: An integer with the time (in seconds) that has to pass to c
 UCAMWEBAUTH_REDIRECT_AFTER_LOGIN: The url where you want to redirect the user after login (Default to '/').
 UCAMWEBAUTH_CREATE_USE: This defaults to True, allowing the autocreation of users who have been successfully 
 authenticated by Raven, but do not exist in the local database. The user is created with set_unusable_password().
-UCAMWEBAUTH_NTPDRIFT: Defaults to 0, the number of milliseconds that you may allow the client to drift into the future, when the client machine may have drifted out of sync with ntp (found during Django app development).
+UCAMWEBAUTH_NTPDRIFT: Defaults to 0, the number of milliseconds you may allow the client to drift (lag its ntp service). Observed during Django app development.
 ```
 
 An example, referencing the Raven test environment is given below:
