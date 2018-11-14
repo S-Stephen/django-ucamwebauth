@@ -93,7 +93,7 @@ class RavenResponse(object):
         # NTP-synchronised clock then allowing for a transmission time of 30-60 seconds is probably appropriate.
         # Otherwise allowance must be made for the maximum expected clock skew.
         if self.issue > time.time()+0.001*setting('UCAMWEBAUTH_TSDRIFT', 0):
-            raise InvalidResponseError("The timestamp on the response appears in the future (configure UCAMWEBAUTH_TSDRIFT?)")
+            raise InvalidResponseError("The timestamp on the response appears in the future")
         if self.issue < time.time() - setting('UCAMWEBAUTH_TIMEOUT', 30):
             raise InvalidResponseError("Response has timed out - issued %s, now %s" %
                                        (time.asctime(time.gmtime(self.issue)), time.asctime()))
