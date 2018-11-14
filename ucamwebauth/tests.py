@@ -180,10 +180,10 @@ class RavenTestCase(TestCase):
 
     def test_login_issue_future_managed(self):
         """Tests that a Raven response issued in the future can be managed by config option"""
-        with self.settings(UCAMWEBAUTH_CREATE_USER=False,UCAMWEBAUTH_TSDRIFT=62000):
+        with self.settings(UCAMWEBAUTH_CREATE_USER=False,UCAMWEBAUTH_NTPDRIFT=62000):
             self.client.get(reverse('raven_return'), 
                             {'WLS-Response': create_wls_response(
-                                raven_issue=(datetime.utcnow() + timedelta(hours=1)).strftime('%Y%m%dT%H%M%SZ')
+                                raven_issue=(datetime.utcnow() + timedelta(minutes=1)).strftime('%Y%m%dT%H%M%SZ')
                             )})
         self.assertIn('_auth_user_id', self.client.session)
 
