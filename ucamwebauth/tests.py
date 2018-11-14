@@ -183,7 +183,7 @@ class RavenTestCase(TestCase):
         with self.settings(UCAMWEBAUTH_CREATE_USER=False,UCAMWEBAUTH_TSDRIFT=62000):
             self.client.get(reverse('raven_return'), 
                             {'WLS-Response': create_wls_response(
-                                raven_issue=(datetime.utcnow() + timedelta(minutes=1)).strftime('%Y%m%dT%H%M%SZ')
+                                raven_issue=(datetime.utcnow() + timedelta(hours=1)).strftime('%Y%m%dT%H%M%SZ')
                             )})
         self.assertIn('_auth_user_id', self.client.session)
 
